@@ -8,8 +8,6 @@ environment:
   sdk: '>=2.6.0-dev.8.2 <3.0.0'
 
 dependencies:
-  ffi: # ^0.1.4
-    git: 'git://github.com/dart-lang/ffi'
   path: ^1.6.4
   meta: ^1.1.8
   reflectable: ^2.2.0
