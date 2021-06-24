@@ -435,6 +435,34 @@ class AuthorizationStateWaitCode extends AuthorizationState {
 }
 
 @reflector
+class AuthorizationStateWaitOtherDeviceConfirmation extends AuthorizationState {
+  @override
+  String get tdType => 'authorizationStateWaitOtherDeviceConfirmation';
+
+  /// [link] A tg:// URL for the QR code. The link will be updated frequently
+  String link;
+
+  /// callback sign
+  dynamic extra;
+
+  @override
+  Map<String, dynamic> get params => {
+    'link': link,
+    'extra': extra
+  };
+
+  AuthorizationStateWaitOtherDeviceConfirmation({
+    this.link,
+    this.extra
+  });
+
+  AuthorizationStateWaitOtherDeviceConfirmation.fromJson(Map<String, dynamic> json) {
+    link = tryConvertToTdObject(json['link']);
+    extra = tryConvertToTdObject(json['extra']);
+  }
+}
+
+@reflector
 class AuthorizationStateWaitRegistration extends AuthorizationState {
   @override
   String get tdType => 'authorizationStateWaitRegistration';
